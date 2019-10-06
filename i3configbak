@@ -17,7 +17,7 @@ font pango:monospace 8
 
 exec_always fcitx #每次启动i3启动输入法 sleep为等待时间
 exec_always compton  #每次启动渲染器达到透明效果
-exec_always feh --bg-fill ~/background.jpg
+exec_always feh --bg-fill ~/background.jpg #Arch Linux 上的配置
 #exec_always variety #启动壁纸管理
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh # 启动polybar
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
