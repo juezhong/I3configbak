@@ -21,6 +21,8 @@ exec_always feh --bg-fill ~/background.jpg
 #exec_always variety #启动壁纸管理
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh # 启动polybar
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always xmodmap ~/.xmodmap #每次更新更改过的键位
+bindsym $mod+x exec xmodmap ~/.xmodmap
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
