@@ -44,10 +44,16 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec $mod+F7 amixer set Master +10%
-bindsym XF86AudioLowerVolume exec $mod+F8 amixer set Master -10%
-bindsym XF86AudioMute exec $mod+F6 pactl set-sink-mute @DEFAULT_SINK@ toggle
-
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -c 1 -q sset Master 5%+"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -c 1 -q sset Master 5%-"
+bindsym XF86AudioMute exec --no-startup-id "amixer -c 1 -q sset Master toggle"
+#bindsym XF86AudioRaiseVolume exec $mod+F7 amixer set Master +10%
+#bindsym XF86AudioLowerVolume exec $mod+F8 amixer set Master -10%
+#bindsym XF86AudioMute exec $mod+F6 pactl set-sink-mute @DEFAULT_SINK@ toggle
+#
+#Backlight set
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 1"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -59,8 +65,6 @@ bindsym $mod+Return exec sakura
 bindsym $mod+Control+g exec google-chrome-stable
 # start firefox
 bindsym $mod+Control+f exec firefox
-# turn up/down sound
-#bindsym $mod+F7 amixer set Master 5%+
 # kill focused window
 bindsym $mod+q kill
 
