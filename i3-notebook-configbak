@@ -28,6 +28,8 @@ exec_always xinput disable "SynPS/2 Synaptics TouchPad"
 #也可以手动开启/关闭
 bindsym $mod+t exec xinput disable "SynPS/2 Synaptics TouchPad"
 bindsym $mod+Shift+t exec xinput enable "SynPS/2 Synaptics TouchPad"
+#手动休眠 suspend
+bindsym $mod+Shift+s exec systemctl suspend
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
