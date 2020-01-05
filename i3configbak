@@ -16,18 +16,16 @@ set $mod Mod4
 font pango:monospace 8
 
 exec_always fcitx #每次启动i3启动输入法 sleep为等待时间
-exec_always compton  #每次启动渲染器达到透明效果
-exec_always feh --bg-fill ~/background.jpg #Arch Linux 上的配置
+exec_always compton -b  #每次启动渲染器达到透明效果
+exec_always feh --bg-fill ~/background.jpg
 #exec_always variety #启动壁纸管理
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh # 启动polybar
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always xmodmap ~/.xmodmap
+exec_always xmodmap ~/.xmodmap #每次更新更改过的键位
 bindsym $mod+x exec xmodmap ~/.xmodmap
-#每次启动关闭触控板
-exec_always xinput disable "SynPS/2 Synaptics TouchPad"
-#也可以手动开启/关闭
-bindsym $mod+t exec xinput disable "SynPS/2 Synaptics TouchPad"
-bindsym $mod+Shift+t exec xinput enable "SynPS/2 Synaptics TouchPad"
+#休眠 suspend
+bindsym $mod+Shift+s exec systemctl suspend
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -52,7 +50,10 @@ bindsym XF86AudioMute exec $mod+F6 pactl set-sink-mute @DEFAULT_SINK@ toggle
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec deepin-terminal
+bindsym $mod+Return exec sakura
+#sakura
+#deepin-terminal
+
 # start Google chrome
 bindsym $mod+Control+g exec google-chrome-stable
 # start firefox
@@ -200,4 +201,4 @@ new_window 1pixel #窗口的顶部的边框变成最小（隐藏）
 #       status_command i3status
 #}
 
-gaps inner 4 #设置两个窗口间边框（留白）
+gaps inner 3 #设置两个窗口间边框（留白）
