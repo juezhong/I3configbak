@@ -31,6 +31,7 @@ bindsym $mod+t exec xinput disable "SynPS/2 Synaptics TouchPad"
 bindsym $mod+Shift+t exec xinput enable "SynPS/2 Synaptics TouchPad"
 #手动休眠 suspend
 bindsym $mod+Shift+s exec systemctl suspend
+bindsym $mod+Print exec deepin-screenshot
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -178,7 +179,7 @@ assign [class="Sakura"] $ws1
 assign [class="Konsole"] $ws1
 assign [class="Code"] $ws8
 assign [class="firefox"] $ws2
-assign [class="google chrome"] $ws2
+assign [class="chrome"] $ws2
 #
 # reload the configuration file
 bindsym $mod+Shift+c reload
