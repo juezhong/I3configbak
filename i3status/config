@@ -15,19 +15,21 @@ general {
         interval = 1
 }
 
-order += "volume master"
-order += "disk /"
 #order += "ipv6"
 #无线
 order += "wireless _first_"
 #有线
 #order += "ethernet _first_"
+order += "disk /"
+order += "volume master"
 order += "battery all"
 #获取系统负载
 #order += "load"
 order += "cpu_usage"
 order += "memory"
 order += "tztime local"
+order += "battery_0"
+order += "battery_1"
 
 #设置摆放位置 align = center/right/left
 #设置显示距离 min_width = 数字
@@ -38,7 +40,7 @@ order += "tztime local"
 #format_up = "W:(%quality at %essid)%ip"
 #format_up = "🚁直%essid"
 wireless _first_ {
-        format_up = "直%essid"
+        format_up = "🏷%essid"
         format_down = "W:down"
 }
 
@@ -48,17 +50,16 @@ ethernet _first_ {
 }
 
 battery all {
-        align = center
         format = "%status %percentage %remaining"
         format_down = "No battery"
         status_chr = "🔌CHR"
         status_bat = "🔋BAT"
-        status_unk = "?UNK"
+        status_unk = "❔UNK"
         status_full = "🈵FULL"
 }
 
 disk "/" {
-        format = "🖴 %avail"
+        format = "💾%avail"
 }
 #获取系统负载
 #load {
@@ -66,7 +67,7 @@ disk "/" {
 #}
 
 cpu_usage {
-        format = " CPU %usage"
+        format = "✡CPU %usage"
         max_threshold = 90
         degraded_threshold = 80
 }
@@ -76,16 +77,17 @@ cpu_usage {
 
 #format = "Memory|Total %total|Used %used|%available|Free %free"
 memory {
-        format = " #U %used|A %available"
+        format = "☄%used|🉑%available"
         threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
+        format_degraded = "⚠ MEMORY❕❗<%available"
 }
 
 tztime local {
-        format = "📆%Y-%m-%d🕓%H:%M:%S"
+        format = "♉📆%m-%d🕓%H:%M:%S"
+        #format = "♉📆%Y-%m-%d🕓%H:%M:%S"
 }
 volume master {
-        format = "%volume"
+        format = "🔊%volume"
         format_muted = "🔇muted(%volume)"
         device = "default"
         mixer = "Master"
